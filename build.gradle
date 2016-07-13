@@ -10,7 +10,7 @@ apply plugin: 'spring-boot'
 apply from: 'gradle/eclipse.gradle'
 
 jar {
-	baseName = 'slidebucket'
+	baseName = 'japan-commercial-map'
 	version = '0.0.1-SNAPSHOT'
 }
 sourceCompatibility = 1.8
