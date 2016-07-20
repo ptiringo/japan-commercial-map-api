@@ -1,5 +1,6 @@
 package com.example.ptiringo.domain.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,6 +19,8 @@ public class Downtown {
 	@GeneratedValue
 	private long id;
 
+	/** 都道府県コード */
+	private int prefectureCode;
 	/** 商業集積地番号1 */
 	private int code1;
 	/** 商業集積地番号2 */
@@ -29,12 +32,14 @@ public class Downtown {
 	/** 事業所数 */
 	private int officeCount;
 	/** 大規模小売店舗内事業所数 */
+	@Column(nullable = true)
 	private int insideShopCount;
 	/** 従業者数 */
 	private int employeeCount;
 	/** 年間商品販売額 */
 	private long annualSalesTurnover;
 	/** 売場面積 */
+	@Column(nullable = true)
 	private int area;
 
 }

@@ -1,0 +1,9 @@
+debug: true
+spring:
+  datasource:
+    platform: h2
+  data:
+    rest:
+      base-path: /api
+  jpa:
+    show-sql: true
