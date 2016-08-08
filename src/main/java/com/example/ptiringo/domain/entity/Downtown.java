@@ -17,29 +17,35 @@ public class Downtown {
 
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 
 	/** 都道府県コード */
-	private int prefectureCode;
+	private Integer prefectureCode;
 	/** 商業集積地番号1 */
-	private int code1;
+	private Integer code1;
 	/** 商業集積地番号2 */
-	private int code2;
+	private Integer code2;
 	/** 商店街名 */
 	private String name;
 	/** 集積細分コード */
-	private int commercialAccumulationCode;
+	private Integer commercialAccumulationCode;
 	/** 事業所数 */
-	private int officeCount;
+	private Integer officeCount;
 	/** 大規模小売店舗内事業所数 */
 	@Column(nullable = true)
-	private int insideShopCount;
+	private Integer insideShopCount;
 	/** 従業者数 */
-	private int employeeCount;
+	private Integer employeeCount;
 	/** 年間商品販売額 */
-	private long annualSalesTurnover;
+	private Long annualSalesTurnover;
 	/** 売場面積 */
 	@Column(nullable = true)
-	private int area;
+	private Integer area;
 
+	/** 緯度 */
+	@Column(nullable = true)
+	private Double latitude;
+	/** 経度 */
+	@Column(nullable = true)
+	private Double longitude;
 }
