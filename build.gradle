@@ -1,11 +1,11 @@
 buildscript {
-	ext { springBootVersion = '1.4.0.RELEASE' }
-	repositories { mavenCentral() }
+	ext { springBootVersion = '1.4.2.RELEASE' }
+	repositories { jcenter() }
 	dependencies { classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}" }
 }
 
 apply plugin: 'java'
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 
 apply from: 'gradle/eclipse.gradle'
 
@@ -34,4 +34,4 @@ dependencies {
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
-task wrapper(type: Wrapper) { gradleVersion = '3.0' }
+task wrapper(type: Wrapper) { gradleVersion = '2.14.1' }
