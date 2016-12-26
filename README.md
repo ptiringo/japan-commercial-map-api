@@ -4,3 +4,13 @@
 
 ## API の利用方法
 検討中
+
+## 開発用メモ
+### ビルド
+`./gradlew build`
+
+### 開発ツール
+|名前|URL|
+|---|---|
+|H2 console|http://localhost:8080/h2-console|
+|HAL Browser|http://localhost:8080/api|
