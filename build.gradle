@@ -1,9 +1,18 @@
+buildscript {
+	repositories {jcenter() }
+	dependencies { classpath 'se.transmode.gradle:gradle-docker:1.2' }
+}
+
 plugins {
-	id 'org.springframework.boot' version '1.4.3.RELEASE'
+	id 'org.springframework.boot' version '1.4.4.RELEASE'
 	id 'com.boxfuse.client' version '1.23.4.1200'
 	id 'java'
 	id 'eclipse'
 }
+
+apply plugin: 'docker'
+
+group = 'ptiringo'
 
 jar {
 	baseName = 'japan-commercial-map-api'
@@ -19,7 +28,7 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
 	compile 'org.springframework.boot:spring-boot-starter-data-rest'
 	compile 'org.springframework.boot:spring-boot-starter-actuator'
-	compileOnly 'org.projectlombok:lombok:1.16.12'
+	compileOnly 'org.projectlombok:lombok:1.16.14'
 
 	// develop
 	runtime 'com.h2database:h2'
@@ -31,3 +40,15 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) { gradleVersion = '2.14.1' }
+
+task buildDocker(type: Docker, dependsOn: build) {
+	push = true
+	applicationName = jar.baseName
+	dockerfile = file('src/main/docker/Dockerfile')
+	doFirst {
+		copy {
+			from jar
+			into stageDir
+		}
+	}
+}
