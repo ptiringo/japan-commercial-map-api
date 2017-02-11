@@ -4,11 +4,14 @@ sudo: false
 addons:
   apt:
     packages:
-      - oracle-java8-installer
+    - oracle-java8-installer
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+notifications:
+  slack:
+    secure: XE358CJv80Dwj+2G3Z0clh7q+a6sCmGS6jtTfbx7wrI0j8jb06jjZEYnqslbXyHnxQCQb0foAKSBuD3FSjWeiMJbiNLGGPdyaL86EtM3+hChiSv0FsHMx6DMJa1rilu99jQkrMkZIf+l15cHJfsCC+8AWFJxlFgWzmW4Kq034KhoNks0Ap++5011ClQBfa3VDdUx0MkrNqsEkSlEiBZozL1rXNZ/97CUc/JZv0DWFypZLTmSyttuowTki7xD/CRsA0ySSQ6uF6Z2fp6U1whSVvbHOWx/gmN8wnkv+YDsS0Xa3sROluBcG+CjOxBYoZaSifeIlD6kMfvLBc4bSTkYJ8va53VvCuJqnx40aB+SulowBQJmaxnmv89MxADwTzLjptCZ1S/2XtwvwA3HXFuYggYRsCGXT8qiBoJO0xLD/V4M3/+qTNNfnjqZkyMR8LmgPOEwd0bkQFgKBc7EUXtWAd6+z1OR5n/Vw9t5yYXemE0V5iiCLGBO+JqeWFZtG/IADdvyoR6wwPz1BthSE+jslpuYrYrMSri0LzO9PcBbAj/C9TSXqLZq1bj0ouGPTvGvJob4xD+YKT5tS9ZiKe9MnODXv8AM9vk9ci9YolPz8yf6VqW/ZJHcOr6aqNj4GSAGnxhGyp+Hx50v2F8vFNAzHcO/XzA/N0yB1QyHZOVdsYE=
