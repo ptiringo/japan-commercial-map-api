@@ -10,7 +10,7 @@
 `./gradlew build`
 
 ### 開発ツール
-|名前|URL|
-|---|---|
-|H2 console|http://localhost:8080/h2-console|
-|HAL Browser|http://localhost:8080/api|
+| 名前        | URL                              |
+| ----------- | -------------------------------- |
+| H2 console  | http://localhost:8080/h2-console |
+| HAL Browser | http://localhost:8080/api        |
