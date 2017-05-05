@@ -1,20 +1,24 @@
 plugins {
 	id 'org.springframework.boot' version '1.5.3.RELEASE'
 	id 'com.palantir.docker' version '0.13.0'
+	id 'com.palantir.docker-run' version '0.13.0'
 	id 'com.github.ben-manes.versions' version '0.14.0'
 	id 'java'
 	id 'eclipse'
 }
 
+ext{
+	dockerImageName = "${group}/${jar.baseName}:${jar.version}"
+}
+
 group = 'ptiringo'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 jar {
 	baseName = 'japan-commercial-map-api'
 	version = '0.0.1-SNAPSHOT'
 }
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories { jcenter() }
 
@@ -32,10 +36,15 @@ dependencies {
 	// test
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
-
+	
 docker {
-	name "${group}/${jar.baseName}:${jar.version}"
+	name dockerImageName
 	files jar
+}
+
+dockerRun {
+	name "${group}_${jar.baseName}_${jar.version}"
+	image dockerImageName
 }
 
 task wrapper(type: Wrapper) { gradleVersion = '3.5' }

@@ -7,11 +7,21 @@
 
 ## 開発用メモ
 ### 操作
+#### 実行
+`./gradlew bootRun`
+
 #### ビルド
 `./gradlew build`
 
 #### 依存性のバージョンアップがないかの確認
 `./gradlew updateDependency`
+
+#### Docker
+##### イメージ作成
+`./gradlew docker`
+
+##### コンテナー作成
+`./gradlew dockerRun`
 
 ### 開発ツール
 | 名前        | URL                              |
