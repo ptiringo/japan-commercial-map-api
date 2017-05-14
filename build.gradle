@@ -7,17 +7,19 @@ plugins {
 	id 'eclipse'
 }
 
-ext{
-	dockerImageName = "${group}/${jar.baseName}:${jar.version}"
-}
-
 group = 'ptiringo'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+docker.dependsOn bootRepackage
+
 jar {
 	baseName = 'japan-commercial-map-api'
 	version = '0.0.1-SNAPSHOT'
+}
+
+ext{
+	dockerImageName = "${group}/${jar.baseName}:${jar.version}"
 }
 
 repositories { jcenter() }
@@ -36,7 +38,7 @@ dependencies {
 	// test
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
-	
+
 docker {
 	name dockerImageName
 	files jar
@@ -45,6 +47,7 @@ docker {
 dockerRun {
 	name "${group}_${jar.baseName}_${jar.version}"
 	image dockerImageName
+	ports '8080'
 }
 
 task wrapper(type: Wrapper) { gradleVersion = '3.5' }

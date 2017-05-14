@@ -14,7 +14,7 @@
 `./gradlew build`
 
 #### 依存性のバージョンアップがないかの確認
-`./gradlew updateDependency`
+`./gradlew dependencyUpdates`
 
 #### Docker
 ##### イメージ作成
