@@ -17,6 +17,7 @@ jar {
 }
 
 ext{
+	profile = project.hasProperty('spring.profiles.active') ? project.getProperty('spring.profiles.active') : "development"
 	dockerImageName = "${group}/${jar.baseName}:${jar.version}"
 }
 
@@ -28,14 +29,21 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-actuator'
 	compileOnly 'org.projectlombok:lombok:1.16.16'
 
-	// develop
-	runtime 'com.h2database:h2'
-	compile 'org.springframework.data:spring-data-rest-hal-browser'
-	compile 'org.springframework.boot:spring-boot-devtools'
+	if (profile == "development") {
+		runtime 'com.h2database:h2'
+		compile 'org.springframework.data:spring-data-rest-hal-browser'
+		compile 'org.springframework.boot:spring-boot-devtools'
+	}
+	
+	if (profile == "production") {
+		compile 'mysql:mysql-connector-java'
+	}
 
 	// test
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
+
+bootRun { systemProperties = System.properties }
 
 docker {
 	name dockerImageName

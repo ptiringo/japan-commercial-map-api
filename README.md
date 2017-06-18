@@ -6,7 +6,19 @@
 検討中
 
 ## 開発用メモ
+### プロファイル
+Gradle の -P オプションで spring.profiles.active を渡します。  
+オプションを付与しない場合、`development`がデフォルトで使用されます。
+
+例）`./gradlew -Pspring.profiles.active=production build`
+
+| プロファイル | 用途   |
+| ------------ | ------ |
+| development  | 開発用 |
+| production   | 本番   |
+
 ### 操作
+
 #### 実行
 `./gradlew bootRun`
 

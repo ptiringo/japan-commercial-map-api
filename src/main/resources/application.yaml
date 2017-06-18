@@ -1,9 +1,23 @@
-debug: true
 spring:
-  datasource:
-    platform: h2
+  profiles:
+    active: development
   data:
     rest:
       base-path: /api
+
+---
+
+spring:
+  profiles: development
+  datasource:
+    platform: h2
   jpa:
     show-sql: true
+debug: true
+
+---
+
+spring:
+  profiles: production
+  datasource:
+    platform: h2
