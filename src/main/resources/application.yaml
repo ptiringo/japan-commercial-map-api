@@ -19,5 +19,3 @@ debug: true
 
 spring:
   profiles: production
-  datasource:
-    platform: h2
