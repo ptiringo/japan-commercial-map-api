@@ -11,8 +11,6 @@ group = 'ptiringo'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-docker.dependsOn bootRepackage
-
 jar {
 	baseName = 'japan-commercial-map-api'
 	version = '0.0.1-SNAPSHOT'
@@ -42,6 +40,7 @@ dependencies {
 docker {
 	name dockerImageName
 	files jar
+	dependsOn bootRepackage
 }
 
 dockerRun {
