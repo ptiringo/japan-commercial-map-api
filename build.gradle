@@ -17,7 +17,7 @@ jar {
 }
 
 ext {
-	profile = getProperty('spring.profiles.active') ?: PROFILE ?: "development"
+	profile = findProperty('spring.profiles.active') ?: "development"
 	dockerImageName = "${group}/${jar.baseName}:${jar.version}"
 }
 
