@@ -16,8 +16,8 @@ jar {
 	version = '0.0.1-SNAPSHOT'
 }
 
-ext{
-	profile = project.hasProperty('spring.profiles.active') ? project.getProperty('spring.profiles.active') : "development"
+ext {
+	profile = getProperty('spring.profiles.active') ?: PROFILE ?: "development"
 	dockerImageName = "${group}/${jar.baseName}:${jar.version}"
 }
 
@@ -28,15 +28,11 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-data-rest'
 	compile 'org.springframework.boot:spring-boot-starter-actuator'
 	compileOnly 'org.projectlombok:lombok:1.16.16'
+	runtime 'org.postgresql:postgresql'
 
 	if (profile == "development") {
-		runtime 'com.h2database:h2'
 		compile 'org.springframework.data:spring-data-rest-hal-browser'
 		compile 'org.springframework.boot:spring-boot-devtools'
-	}
-	
-	if (profile == "production") {
-		compile 'mysql:mysql-connector-java'
 	}
 
 	// test
@@ -55,6 +51,10 @@ dockerRun {
 	name "${group}_${jar.baseName}_${jar.version}"
 	image dockerImageName
 	ports '8080'
+}
+
+task stage {
+	dependsOn clean, assemble
 }
 
 task wrapper(type: Wrapper) { gradleVersion = '3.5' }

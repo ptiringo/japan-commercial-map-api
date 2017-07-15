@@ -52,3 +52,9 @@ local.properties
 # Code Recommenders
 .recommenders/
 /build/
+
+# Heroku
+.env
+
+# DBeaver
+.dbeaver-data-sources.xml

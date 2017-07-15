@@ -10,9 +10,10 @@ spring:
 spring:
   profiles: development
   datasource:
-    platform: h2
+    platform: postgresql
   jpa:
     show-sql: true
+    generate-ddl: true
 debug: true
 
 ---
