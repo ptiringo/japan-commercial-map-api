@@ -14,6 +14,10 @@ spring:
   jpa:
     show-sql: true
     generate-ddl: true
+endpoints:
+  hypermedia:
+    enabled: true
+  sensitive: false
 debug: true
 
 ---
