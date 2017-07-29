@@ -1,0 +1,15 @@
+ext {
+	dockerImageName = "${group}/${jar.baseName}:${jar.version}"
+}
+
+docker {
+	name dockerImageName
+	files jar
+	dependsOn bootRepackage
+}
+
+dockerRun {
+	name "${group}_${jar.baseName}_${jar.version}"
+	image dockerImageName
+	ports '8080'
+}
