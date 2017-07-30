@@ -17,8 +17,7 @@ Gradle の -P オプションで spring.profiles.active を渡します。
 | development  | 開発用 |
 | production   | 本番   |
 
-### 操作
-
+### ローカル
 #### 実行
 `./gradlew bootRun`
 
@@ -28,6 +27,13 @@ Gradle の -P オプションで spring.profiles.active を渡します。
 #### 依存性のバージョンアップがないかの確認
 `./gradlew dependencyUpdates`
 
+#### heroku local
+
+```
+./gradlew build
+heroku local -e .env.local
+```
+
 #### Docker
 ##### イメージ作成
 `./gradlew docker`
@@ -36,7 +42,7 @@ Gradle の -P オプションで spring.profiles.active を渡します。
 `./gradlew dockerRun`
 
 ### 開発ツール
-| 名前        | URL                              |
-| ----------- | -------------------------------- |
-| H2 console  | http://localhost:8080/h2-console |
-| HAL Browser | http://localhost:8080/api        |
+| 名前                   | URL                            |
+| ---------------------- | ------------------------------ |
+| HAL Browser            | http://localhost:8080/api      |
+| HAL Browser (Actuator) | http://localhost:8080/actuator |

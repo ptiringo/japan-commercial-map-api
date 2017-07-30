@@ -54,7 +54,7 @@ local.properties
 /build/
 
 # Heroku
-.env
+.env*
 
 # DBeaver
 .dbeaver-data-sources.xml

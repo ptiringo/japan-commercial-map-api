@@ -10,10 +10,11 @@ spring:
 spring:
   profiles: development
   datasource:
-    platform: postgresql
+    url: jdbc:postgresql://localhost/postgres
   jpa:
     show-sql: true
-    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
 endpoints:
   hypermedia:
     enabled: true
