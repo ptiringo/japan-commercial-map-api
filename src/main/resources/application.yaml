@@ -4,6 +4,8 @@ spring:
   data:
     rest:
       base-path: /api
+flyway:
+  locations: db/migration/{vendor}
 
 ---
 
@@ -13,8 +15,6 @@ spring:
     url: jdbc:postgresql://localhost/postgres
   jpa:
     show-sql: true
-    hibernate:
-      ddl-auto: create-drop
 endpoints:
   hypermedia:
     enabled: true
