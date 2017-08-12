@@ -9,6 +9,7 @@ plugins {
 
 ext {
 	profile = findProperty('spring.profiles.active') ?: "development"
+	println "profile=$profile"
 }
 
 group = 'ptiringo'
@@ -21,6 +22,12 @@ jar {
 }
 
 repositories { jcenter() }
+
+task stage {
+	description 'Herokuデプロイ時に実行されるタスク'
+	profile = 'production' // 開発用のライブラリを含めないようにプロファイルを上書きする
+	dependsOn assemble
+}
 
 dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -40,10 +47,6 @@ dependencies {
 }
 
 bootRun { systemProperties = System.properties }
-
-task stage {
-	dependsOn assemble
-}
 
 task wrapper(type: Wrapper) { gradleVersion = '3.5' }
 
