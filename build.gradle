@@ -42,7 +42,7 @@ dependencies {
 bootRun { systemProperties = System.properties }
 
 task stage {
-	dependsOn clean, assemble
+	dependsOn assemble
 }
 
 task wrapper(type: Wrapper) { gradleVersion = '3.5' }
