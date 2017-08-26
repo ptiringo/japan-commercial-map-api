@@ -9,7 +9,6 @@ plugins {
 
 ext {
 	profile = findProperty('spring.profiles.active') ?: "development"
-	println "profile=$profile"
 }
 
 group = 'ptiringo'
@@ -34,7 +33,7 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-data-rest'
 	compile 'org.springframework.boot:spring-boot-starter-actuator'
 	compile 'org.flywaydb:flyway-core'
-	compileOnly 'org.projectlombok:lombok:1.16.18'
+	compileOnly 'org.projectlombok:lombok'
 	runtime 'org.postgresql:postgresql'
 
 	if (profile == "development") {
