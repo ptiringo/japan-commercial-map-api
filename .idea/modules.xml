@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/japan-commercial-map-api.iml" filepath="$PROJECT_DIR$/japan-commercial-map-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/japan-commercial-map-api_main.iml" filepath="$PROJECT_DIR$/.idea/modules/japan-commercial-map-api_main.iml" group="japan-commercial-map-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/japan-commercial-map-api_test.iml" filepath="$PROJECT_DIR$/.idea/modules/japan-commercial-map-api_test.iml" group="japan-commercial-map-api" />
+    </modules>
+  </component>
+</project>
