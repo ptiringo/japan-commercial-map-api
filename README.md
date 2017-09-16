@@ -27,6 +27,9 @@ Gradle の -P オプションで spring.profiles.active を渡します。
 #### 依存性のバージョンアップがないかの確認
 `./gradlew dependencyUpdates`
 
+#### ローカルでの開発環境 (DB) の立ち上げ
+`docker-compose up -d`
+
 #### heroku local
 
 ```
@@ -44,5 +47,5 @@ heroku local -e .env.local
 ### 開発ツール
 | 名前                   | URL                            |
 | ---------------------- | ------------------------------ |
-| HAL Browser            | http://localhost:8080/api      |
-| HAL Browser (Actuator) | http://localhost:8080/actuator |
+| HAL Browser            | http://localhost:5000/api      |
+| HAL Browser (Actuator) | http://localhost:5000/actuator |
