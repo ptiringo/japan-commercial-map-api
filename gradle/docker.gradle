@@ -4,7 +4,7 @@ ext {
 
 docker {
 	name dockerImageName
-	files jar
+	files jar, './docker/wait-for-it.sh'
 	dependsOn bootRepackage
 }
 
