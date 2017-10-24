@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '1.5.7.RELEASE'
+	id 'org.springframework.boot' version '1.5.8.RELEASE'
 	id 'com.github.ben-manes.versions' version '0.15.0'
 	id 'com.palantir.docker' version '0.13.0'
 	id 'com.palantir.docker-run' version '0.13.0'
@@ -8,7 +8,7 @@ plugins {
 }
 
 ext {
-	profile = findProperty('spring.profiles.active') ?: "development"
+	profile = findProperty('spring.profiles.active') ?: 'development'
 }
 
 group = 'ptiringo'
@@ -36,7 +36,7 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	runtime 'org.postgresql:postgresql'
 
-	if (profile == "development") {
+	if (profile == 'development') {
 		compile 'org.springframework.data:spring-data-rest-hal-browser'
 		compile 'org.springframework.boot:spring-boot-devtools'
 	}
