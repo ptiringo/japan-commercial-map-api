@@ -53,6 +53,10 @@ dependencies {
 
 bootRun { systemProperties = System.properties }
 
+test {
+	testLogging.exceptionFormat = 'full'
+}
+
 task wrapper(type: Wrapper) { gradleVersion = '3.5' }
 
 apply from: 'gradle/docker.gradle'
