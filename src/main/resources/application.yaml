@@ -12,7 +12,7 @@ flyway:
 spring:
   profiles: development
   datasource:
-    url: jdbc:postgresql://localhost/postgres
+    url: jdbc:postgresql://localhost:15432/postgres
     username: postgres
     password: my-secret-pw
   jpa:
