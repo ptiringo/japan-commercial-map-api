@@ -20,7 +20,12 @@ jar {
 	version = '0.0.1-SNAPSHOT'
 }
 
-repositories { jcenter() }
+repositories {
+	jcenter()
+	maven {
+		url 'https://dl.bintray.com/palantir/releases' // docker-compose-rule is published on bintray
+	}
+}
 
 task stage {
 	description 'Herokuデプロイ時に実行されるタスク'
@@ -43,6 +48,7 @@ dependencies {
 
 	// test
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
+	testCompile 'com.palantir.docker.compose:docker-compose-rule-junit4:0.33.0'
 }
 
 bootRun { systemProperties = System.properties }
