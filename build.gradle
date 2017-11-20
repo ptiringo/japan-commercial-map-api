@@ -7,10 +7,6 @@ plugins {
 	id 'eclipse'
 }
 
-ext {
-	profile = findProperty('spring.profiles.active') ?: 'development'
-}
-
 group = 'ptiringo'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -29,7 +25,6 @@ repositories {
 
 task stage {
 	description 'Herokuデプロイ時に実行されるタスク'
-	profile = 'production' // 開発用のライブラリを含めないようにプロファイルを上書きする
 	dependsOn assemble
 }
 
@@ -41,12 +36,11 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	runtime 'org.postgresql:postgresql'
 
-	if (profile == 'development') {
-		compile 'org.springframework.data:spring-data-rest-hal-browser'
-		compile 'org.springframework.boot:spring-boot-devtools'
-	}
+	// only development
+	compile 'org.springframework.data:spring-data-rest-hal-browser'
+	compile 'org.springframework.boot:spring-boot-devtools'
 
-	// test
+	// only test
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 	testCompile 'com.palantir.docker.compose:docker-compose-rule-junit4:0.33.0'
 }
