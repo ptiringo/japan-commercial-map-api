@@ -7,7 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.palantir.docker.compose.DockerComposeRule;
-import com.palantir.docker.compose.configuration.DockerComposeFiles;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
