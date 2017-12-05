@@ -3,9 +3,9 @@ plugins {
 	id 'com.github.ben-manes.versions' version '0.17.0'
 	id 'com.palantir.docker' version '0.13.0'
 	id 'com.palantir.docker-run' version '0.13.0'
-	id 'org.jetbrains.kotlin.jvm' version '1.1.61'
-	id "org.jetbrains.kotlin.plugin.spring" version "1.1.61"
-	id 'java'
+	id "org.jetbrains.kotlin.jvm" version "1.2.0"
+	id "org.jetbrains.kotlin.plugin.spring" version "1.2.0"
+	id "org.jetbrains.kotlin.plugin.jpa" version "1.2.0"
 	id 'eclipse'
 }
 
@@ -31,11 +31,11 @@ task stage {
 }
 
 dependencies {
+	compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
 	compile 'org.springframework.boot:spring-boot-starter-data-rest'
 	compile 'org.springframework.boot:spring-boot-starter-actuator'
 	compile 'org.flywaydb:flyway-core'
-	compileOnly 'org.projectlombok:lombok'
 	runtime 'org.postgresql:postgresql'
 
 	// only development
