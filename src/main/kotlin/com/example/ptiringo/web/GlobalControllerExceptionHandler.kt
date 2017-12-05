@@ -16,5 +16,4 @@ class GlobalControllerExceptionHandler {
     fun handleNotFound(): ApiError = ApiError("Resource not found.", "101")
 
     data class ApiError(val message: String, val code: String)
-
 }
