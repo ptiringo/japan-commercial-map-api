@@ -1,7 +1,13 @@
 package com.example.ptiringo.domain.repository
 
-import org.springframework.data.repository.PagingAndSortingRepository
-
 import com.example.ptiringo.domain.entity.Downtown
+import org.springframework.data.repository.Repository
 
-interface DowntownRepository : PagingAndSortingRepository<Downtown, Long>
+interface DowntownRepository : Repository<Downtown, Long> {
+    /**
+     * Returns all instances of the type.
+     *
+     * @return all entities
+     */
+    fun findAll(): Iterable<Downtown>
+}
