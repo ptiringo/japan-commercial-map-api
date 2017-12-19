@@ -51,9 +51,7 @@ data class Downtown(
     @Column(nullable = true)
     var area: Int?,
 
-    @Column(nullable = true)
-    var latitude: Double?,
+    var latitude: Double,
 
-    @Column(nullable = true)
-    var longitude: Double?
+    var longitude: Double
 )
