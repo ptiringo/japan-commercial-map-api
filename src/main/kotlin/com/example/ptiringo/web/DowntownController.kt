@@ -24,6 +24,11 @@ class DowntownController {
         val all = repository.findAll().forEach {downtown ->
             val feature = Feature()
             feature.geometry = Point(downtown.longitude, downtown.latitude)
+            feature.properties = mapOf(
+                    "name" to downtown.name,
+                    "commercialAccumulationCode" to downtown.commercialAccumulationCode,
+                    "annualSalesTurnover" to downtown.annualSalesTurnover
+            )
             featureCollection.add(feature)
         }
 
