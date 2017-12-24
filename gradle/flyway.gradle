@@ -1,0 +1,6 @@
+// for develop
+flyway {
+    url = 'jdbc:postgresql://localhost:15432/postgres'
+    user = 'postgres'
+    password = 'my-secret-pw'
+}
