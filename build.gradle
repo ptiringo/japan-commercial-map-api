@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '1.5.8.RELEASE'
+	id 'org.springframework.boot' version '1.5.9.RELEASE'
 	id 'com.github.ben-manes.versions' version '0.17.0'
-	id 'com.palantir.docker' version '0.13.0'
+	id 'com.palantir.docker' version '0.13.0' // 0.17.2 からは Gradle 4.4 以上にする必要あり
 	id 'com.palantir.docker-run' version '0.13.0'
 	id 'org.jetbrains.kotlin.jvm' version '1.2.10'
 	id 'org.jetbrains.kotlin.plugin.spring' version '1.2.10'
