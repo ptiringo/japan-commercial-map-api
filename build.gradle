@@ -1,13 +1,14 @@
 plugins {
-	id 'org.springframework.boot' version '1.5.9.RELEASE'
-	id 'com.github.ben-manes.versions' version '0.17.0'
-	id 'com.palantir.docker' version '0.13.0' // 0.17.2 からは Gradle 4.4 以上にする必要あり
-	id 'com.palantir.docker-run' version '0.13.0'
-	id 'org.jetbrains.kotlin.jvm' version '1.2.10'
-	id 'org.jetbrains.kotlin.plugin.spring' version '1.2.10'
-	id 'org.jetbrains.kotlin.plugin.jpa' version '1.2.10'
-	id 'org.flywaydb.flyway' version '5.0.3'
-	id 'eclipse'
+    id 'org.springframework.boot' version '1.5.9.RELEASE'
+    id 'com.github.ben-manes.versions' version '0.17.0'
+    id 'com.palantir.docker' version '0.13.0' // 0.17.2 からは Gradle 4.4 以上にする必要あり
+    id 'com.palantir.docker-run' version '0.13.0'
+    id 'com.avast.gradle.docker-compose' version '0.6.12'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.10'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.2.10'
+    id 'org.jetbrains.kotlin.plugin.jpa' version '1.2.10'
+    id 'org.flywaydb.flyway' version '5.0.3'
+    id 'eclipse'
 }
 
 group = 'ptiringo'
@@ -15,45 +16,46 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 jar {
-	baseName = 'japan-commercial-map-api'
-	version = '0.0.1-SNAPSHOT'
+    baseName = 'japan-commercial-map-api'
+    version = '0.0.1-SNAPSHOT'
 }
 
 repositories {
-	jcenter()
-	maven {
-		url 'https://dl.bintray.com/palantir/releases' // docker-compose-rule is published on bintray
-	}
+    jcenter()
+    maven {
+        url 'https://dl.bintray.com/palantir/releases' // docker-compose-rule is published on bintray
+    }
 }
 
 task stage {
-	description 'Herokuデプロイ時に実行されるタスク'
-	dependsOn assemble
+    description 'Herokuデプロイ時に実行されるタスク'
+    dependsOn assemble
 }
 
 dependencies {
-	compile 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
-	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-	compile 'org.springframework.boot:spring-boot-starter-data-rest'
-	compile 'org.springframework.boot:spring-boot-starter-actuator'
-	compile 'de.grundid.opendatalab:geojson-jackson:1.8'
-	compile 'org.flywaydb:flyway-core'
-	runtime 'org.postgresql:postgresql'
+    compile 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-data-rest'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'de.grundid.opendatalab:geojson-jackson:1.8'
+    compile 'org.flywaydb:flyway-core'
+    runtime 'org.postgresql:postgresql'
 
-	// only development
-	compile 'org.springframework.data:spring-data-rest-hal-browser'
-	compile 'org.springframework.boot:spring-boot-devtools'
+    // only development
+    compile 'org.springframework.data:spring-data-rest-hal-browser'
+    compile 'org.springframework.boot:spring-boot-devtools'
 
-	// only test
-	testCompile 'org.springframework.boot:spring-boot-starter-test'
-	testCompile 'com.palantir.docker.compose:docker-compose-rule-junit4:0.33.0'
+    // only test
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
 bootRun { systemProperties = System.properties }
 
 test {
-	testLogging.exceptionFormat = 'full'
+    testLogging.exceptionFormat = 'full'
 }
+
+dockerCompose.isRequiredBy(test)
 
 task wrapper(type: Wrapper) { gradleVersion = '3.5' }
 
