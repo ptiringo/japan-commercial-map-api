@@ -4,9 +4,9 @@ plugins {
     id 'com.palantir.docker' version '0.13.0' // 0.17.2 からは Gradle 4.4 以上にする必要あり
     id 'com.palantir.docker-run' version '0.13.0'
     id 'com.avast.gradle.docker-compose' version '0.6.12'
-    id 'org.jetbrains.kotlin.jvm' version '1.2.10'
-    id 'org.jetbrains.kotlin.plugin.spring' version '1.2.10'
-    id 'org.jetbrains.kotlin.plugin.jpa' version '1.2.10'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.20'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.2.20'
+    id 'org.jetbrains.kotlin.plugin.jpa' version '1.2.20'
     id 'org.flywaydb.flyway' version '5.0.3'
     id 'eclipse'
 }
