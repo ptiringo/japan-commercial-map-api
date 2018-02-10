@@ -16,7 +16,7 @@ class DowntownHandler(private val repository: DowntownRepository) {
     fun all(request: ServerRequest): Mono<ServerResponse> {
         val featureCollection = FeatureCollection()
 
-        val all = repository.findAll().map {downtown ->
+        val all = repository.findAll().map { downtown ->
             val feature = Feature()
             feature.geometry = Point(downtown.longitude, downtown.latitude)
             feature.properties = mapOf(

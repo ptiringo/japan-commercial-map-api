@@ -78,3 +78,4 @@ compileKotlin {
 
 apply from: 'gradle/docker.gradle'
 apply from: 'gradle/flyway.gradle'
+apply from: 'gradle/ktlint.gradle'
