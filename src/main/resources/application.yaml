@@ -1,14 +1,6 @@
 spring:
   profiles:
     active: development
-  mvc:
-    throw-exception-if-no-handler-found: true
-  resources:
-    add-mappings: false
-flyway:
-  locations: db/migration/{vendor}
-server:
-  contextPath: /api
 
 ---
 
@@ -20,10 +12,10 @@ spring:
     password: my-secret-pw
   jpa:
     show-sql: true
-endpoints:
-  hypermedia:
-    enabled: true
-  sensitive: false
+management:
+  endpoints:
+    web:
+      expose: "*"
 debug: true
 
 ---

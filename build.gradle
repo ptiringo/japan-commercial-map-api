@@ -1,15 +1,27 @@
+buildscript {
+    repositories {
+        maven { url 'https://repo.spring.io/libs-snapshot' }
+    }
+
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RC1'
+    }
+}
+
 plugins {
-    id 'org.springframework.boot' version '1.5.9.RELEASE'
     id 'com.github.ben-manes.versions' version '0.17.0'
     id 'com.palantir.docker' version '0.13.0' // 0.17.2 からは Gradle 4.4 以上にする必要あり
     id 'com.palantir.docker-run' version '0.13.0'
     id 'com.avast.gradle.docker-compose' version '0.6.12'
-    id 'org.jetbrains.kotlin.jvm' version '1.2.20'
-    id 'org.jetbrains.kotlin.plugin.spring' version '1.2.20'
-    id 'org.jetbrains.kotlin.plugin.jpa' version '1.2.20'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.21'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.2.21'
+    id 'org.jetbrains.kotlin.plugin.jpa' version '1.2.21'
     id 'org.flywaydb.flyway' version '5.0.3'
     id 'eclipse'
 }
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 group = 'ptiringo'
 sourceCompatibility = 1.8
@@ -22,9 +34,8 @@ jar {
 
 repositories {
     jcenter()
-    maven {
-        url 'https://dl.bintray.com/palantir/releases' // docker-compose-rule is published on bintray
-    }
+    maven { url 'http://repo.spring.io/snapshot' }
+    maven { url 'http://repo.spring.io/milestone' }
 }
 
 task stage {
@@ -34,8 +45,9 @@ task stage {
 
 dependencies {
     compile 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    compile 'com.fasterxml.jackson.module:jackson-module-kotlin'
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-    compile 'org.springframework.boot:spring-boot-starter-data-rest'
+    compile 'org.springframework.boot:spring-boot-starter-webflux'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'de.grundid.opendatalab:geojson-jackson:1.8'
     compile 'org.flywaydb:flyway-core'
@@ -44,6 +56,7 @@ dependencies {
     // only development
     compile 'org.springframework.data:spring-data-rest-hal-browser'
     compile 'org.springframework.boot:spring-boot-devtools'
+    compile 'org.springframework.boot:spring-boot-properties-migrator'
 
     // only test
     testCompile 'org.springframework.boot:spring-boot-starter-test'
@@ -57,7 +70,11 @@ test {
 
 dockerCompose.isRequiredBy(test)
 
-task wrapper(type: Wrapper) { gradleVersion = '3.5' }
+task wrapper(type: Wrapper) { gradleVersion = '4.5' }
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
 
 apply from: 'gradle/docker.gradle'
 apply from: 'gradle/flyway.gradle'

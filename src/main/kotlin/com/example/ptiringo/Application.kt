@@ -1,11 +1,21 @@
 package com.example.ptiringo
 
-import org.springframework.boot.SpringApplication
+import com.example.ptiringo.web.DowntownHandler
+import com.example.ptiringo.web.router
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+import org.springframework.context.support.beans
 
 @SpringBootApplication
 class Application
 
 fun main(args: Array<String>) {
-    SpringApplication.run(Application::class.java, *args)
+    runApplication<Application>(*args) {
+        addInitializers(beans {
+            bean<DowntownHandler>()
+            bean {
+                router(ref())
+            }
+        })
+    }
 }

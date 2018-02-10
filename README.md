@@ -47,5 +47,4 @@ heroku local -e .env.local
 ### 開発ツール
 | 名前                   | URL                            |
 | ---------------------- | ------------------------------ |
-| HAL Browser            | http://localhost:5000/api      |
-| HAL Browser (Actuator) | http://localhost:5000/actuator |
+| Actuator               | http://localhost:8080/actuator |

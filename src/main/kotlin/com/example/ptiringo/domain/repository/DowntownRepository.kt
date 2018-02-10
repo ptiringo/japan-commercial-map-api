@@ -2,18 +2,9 @@ package com.example.ptiringo.domain.repository
 
 import com.example.ptiringo.domain.entity.Downtown
 import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.repository.Repository
+import org.springframework.stereotype.Repository
 
-interface DowntownDataRepository : Repository<Downtown, Long> {
-    /**
-     * Returns all instances of the type.
-     *
-     * @return all entities
-     */
-    fun findAll(): Iterable<Downtown>
-}
-
-@org.springframework.stereotype.Repository
+@Repository
 interface DowntownRepository : JpaRepository<Downtown, Long> {
     /**
      * Returns all instances of the type.
