@@ -1,27 +1,16 @@
-buildscript {
-    repositories {
-        maven { url 'https://repo.spring.io/libs-snapshot' }
-    }
-
-    dependencies {
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RC1'
-    }
-}
-
 plugins {
+    id 'org.springframework.boot' version '2.0.0.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.4.RELEASE'
     id 'com.github.ben-manes.versions' version '0.17.0'
-    id 'com.palantir.docker' version '0.13.0' // 0.17.2 からは Gradle 4.4 以上にする必要あり
-    id 'com.palantir.docker-run' version '0.13.0'
-    id 'com.avast.gradle.docker-compose' version '0.6.12'
-    id 'org.jetbrains.kotlin.jvm' version '1.2.21'
-    id 'org.jetbrains.kotlin.plugin.spring' version '1.2.21'
-    id 'org.jetbrains.kotlin.plugin.jpa' version '1.2.21'
+    id 'com.palantir.docker' version '0.19.2'
+    id 'com.palantir.docker-run' version '0.19.2'
+    id 'com.avast.gradle.docker-compose' version '0.7.1'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.30'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.2.30'
+    id 'org.jetbrains.kotlin.plugin.jpa' version '1.2.30'
     id 'org.flywaydb.flyway' version '5.0.3'
     id 'eclipse'
 }
-
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
 
 group = 'ptiringo'
 sourceCompatibility = 1.8
@@ -34,8 +23,6 @@ jar {
 
 repositories {
     jcenter()
-    maven { url 'http://repo.spring.io/snapshot' }
-    maven { url 'http://repo.spring.io/milestone' }
 }
 
 task stage {
@@ -70,7 +57,7 @@ test {
 
 dockerCompose.isRequiredBy(test)
 
-task wrapper(type: Wrapper) { gradleVersion = '4.5' }
+task wrapper(type: Wrapper) { gradleVersion = '4.6' }
 
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
