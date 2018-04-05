@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono
 
 class DowntownHandler(private val repository: DowntownRepository) {
 
-    fun all(request: ServerRequest): Mono<ServerResponse> {
+    fun all(@Suppress("UNUSED_PARAMETER") request: ServerRequest): Mono<ServerResponse> {
         val featureCollection = FeatureCollection()
 
         val all = repository.findAll().map { downtown ->

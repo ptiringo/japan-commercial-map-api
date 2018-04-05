@@ -1,13 +1,13 @@
 plugins {
     id 'org.springframework.boot' version '2.0.0.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.4.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.5.RELEASE'
     id 'com.github.ben-manes.versions' version '0.17.0'
     id 'com.palantir.docker' version '0.19.2'
     id 'com.palantir.docker-run' version '0.19.2'
     id 'com.avast.gradle.docker-compose' version '0.7.1'
-    id 'org.jetbrains.kotlin.jvm' version '1.2.30'
-    id 'org.jetbrains.kotlin.plugin.spring' version '1.2.30'
-    id 'org.jetbrains.kotlin.plugin.jpa' version '1.2.30'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.31'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.2.31'
+    id 'org.jetbrains.kotlin.plugin.jpa' version '1.2.31'
     id 'org.flywaydb.flyway' version '5.0.3'
     id 'eclipse'
 }
@@ -41,7 +41,6 @@ dependencies {
     runtime 'org.postgresql:postgresql'
 
     // only development
-    compile 'org.springframework.data:spring-data-rest-hal-browser'
     compile 'org.springframework.boot:spring-boot-devtools'
     compile 'org.springframework.boot:spring-boot-properties-migrator'
 
