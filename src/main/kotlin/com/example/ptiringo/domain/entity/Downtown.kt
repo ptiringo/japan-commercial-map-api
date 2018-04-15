@@ -6,7 +6,7 @@ import javax.persistence.*
  * 商業集積地区
  *
  * @property id ID
- * @property prefectureCode 都道府県コード
+ * @property prefecture 都道府県
  * @property code1 商業集積地番号1
  * @property code2 商業集積地番号2
  * @property name 商店街名

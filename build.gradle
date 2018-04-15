@@ -26,7 +26,7 @@ repositories {
 }
 
 task stage {
-    description 'Herokuデプロイ時に実行されるタスク'
+    description = 'Herokuデプロイ時に実行されるタスク'
     dependsOn assemble
 }
 
@@ -64,4 +64,3 @@ compileKotlin {
 
 apply from: 'gradle/docker.gradle'
 apply from: 'gradle/flyway.gradle'
-apply from: 'gradle/ktlint.gradle'
