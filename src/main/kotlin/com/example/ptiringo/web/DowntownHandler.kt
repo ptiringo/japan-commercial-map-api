@@ -18,7 +18,7 @@ class DowntownHandler(private val repository: DowntownRepository) {
 
         val all = repository.findAll().map { downtown ->
             val feature = Feature()
-            feature.geometry = Point(downtown.longitude, downtown.latitude)
+            feature.geometry = Point(downtown.point.longitude, downtown.point.latitude)
             feature.properties = mapOf(
                     "name" to downtown.name,
                     "commercialAccumulationCode" to downtown.commercialAccumulationCode,

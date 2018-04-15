@@ -1,10 +1,6 @@
 package com.example.ptiringo.domain.entity
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
 /**
  * 商業集積地区
@@ -20,38 +16,37 @@ import javax.persistence.Id
  * @property employeeCount 従業者数
  * @property annualSalesTurnover 年間商品販売額
  * @property area 売場面積
- * @property latitude 緯度
- * @property longitude 経度
+ * @property point 位置
  * @author ptiringo
  */
 @Entity
 data class Downtown(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long,
+        @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+        val id: Long,
 
-    var prefectureCode: Int,
+        @Embedded
+        val prefecture: Prefecture,
 
-    var code1: Int,
+        val code1: Int,
 
-    var code2: Int,
+        val code2: Int,
 
-    var name: String,
+        val name: String,
 
-    var commercialAccumulationCode: Int,
+        val commercialAccumulationCode: Int,
 
-    var officeCount: Int,
+        val officeCount: Int,
 
-    @Column(nullable = true)
-    var insideShopCount: Int?,
+        @Column(nullable = true)
+        var insideShopCount: Int?,
 
-    var employeeCount: Int,
+        val employeeCount: Int,
 
-    var annualSalesTurnover: Long,
+        val annualSalesTurnover: Long,
 
-    @Column(nullable = true)
-    var area: Int?,
+        @Column(nullable = true)
+        var area: Int?,
 
-    var latitude: Double,
-
-    var longitude: Double
+        @Embedded
+        val point: Point
 )
