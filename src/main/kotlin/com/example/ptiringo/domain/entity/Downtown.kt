@@ -38,14 +38,14 @@ data class Downtown(
         val officeCount: Int,
 
         @Column(nullable = true)
-        var insideShopCount: Int?,
+        val insideShopCount: Int?,
 
         val employeeCount: Int,
 
         val annualSalesTurnover: Long,
 
         @Column(nullable = true)
-        var area: Int?,
+        val area: Int?,
 
         @Embedded
         val point: Point
