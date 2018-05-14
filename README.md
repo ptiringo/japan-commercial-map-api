@@ -25,7 +25,7 @@ Gradle の -P オプションで spring.profiles.active を渡します。
 `./gradlew build`
 
 #### 依存性のバージョンアップがないかの確認
-`./gradlew dependencyUpdates`
+[Gradle で依存ライブラリの新しいバージョンが出てないかを一括チェックする - なにか作る](http://create-something.hatenadiary.jp/entry/2017/05/04/112749)
 
 #### ローカルでの開発環境 (DB) の立ち上げ
 `docker-compose up -d`
