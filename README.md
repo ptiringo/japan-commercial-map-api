@@ -1,12 +1,17 @@
 # 日本商業規模マップ API [![Build Status](https://travis-ci.org/ptiringo/japan-commercial-map-api.svg?branch=master)](https://travis-ci.org/ptiringo/japan-commercial-map-api)
+
 ## 本システムの目的
+
 [経済産業省の平成26年商業統計](http://www.meti.go.jp/statistics/tyo/syougyo/result-2.html)の[立地環境特性別統計編（小売業）内の第 10 表](http://www.meti.go.jp/statistics/tyo/syougyo/result-2/h26/index-ricchidata.html)の情報を元に、日本国内における都市の小売の商業規模を取得するための API を作成する。
 
 ## API の利用方法
+
 検討中
 
 ## 開発用メモ
+
 ### プロファイル
+
 Gradle の -P オプションで spring.profiles.active を渡します。  
 オプションを付与しない場合、`development`がデフォルトで使用されます。
 
@@ -18,16 +23,23 @@ Gradle の -P オプションで spring.profiles.active を渡します。
 | production   | 本番   |
 
 ### ローカル
+
 #### 実行
+
 `./gradlew bootRun`
 
 #### ビルド
+
 `./gradlew build`
 
 #### 依存性のバージョンアップがないかの確認
+
+`./gradlew dependencyUpdates`
+
 [Gradle で依存ライブラリの新しいバージョンが出てないかを一括チェックする - なにか作る](http://create-something.hatenadiary.jp/entry/2017/05/04/112749)
 
 #### ローカルでの開発環境 (DB) の立ち上げ
+
 `docker-compose up -d`
 
 #### heroku local
@@ -38,13 +50,17 @@ heroku local -e .env.local
 ```
 
 #### Docker
+
 ##### イメージ作成
+
 `./gradlew docker`
 
 ##### コンテナー作成
+
 `./gradlew dockerRun`
 
 ### 開発ツール
+
 | 名前                   | URL                            |
 | ---------------------- | ------------------------------ |
 | Actuator               | http://localhost:8080/actuator |
